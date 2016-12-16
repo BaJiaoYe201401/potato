@@ -94,7 +94,7 @@
 		toJson:function(data){
 			if(typeof data =='string'){
 				try{
-					data = JSON.stringify(data);
+					data = JSON.parse(data);
 				}catch(e){
 					data = {};
 				}
@@ -110,7 +110,7 @@
 					data = self.toJson(data);
 					if(data.openid){
 						self.openid = data.openid;
-						alert('self.openid=' + self.openid);
+						//alert('self.openid=' + self.openid);
 					}else if(data.errmsg){
 						//{"errcode":40029,"errmsg":"invalid code, hints: [ req_id: Df8jRa0780s104 ]"}
 						alert(data.errmsg);
@@ -10552,7 +10552,8 @@
 		'gk1':100,
 		'gk2':100
 	}
-	var debug = false;
+	var debug = true;
+	var debugFlag = true;
 
 	function Map(){
 		this.$ele  = $('#map');
@@ -10589,8 +10590,9 @@
 			if(rand>50){
 				flag = false;
 			}
-			//for test
-			//flag = true;
+			if(debug){
+				flag = debugFlag;
+			}
 			return flag;
 		},
 		mapEvent:function(){
@@ -10643,7 +10645,8 @@
 			$('.share-btn').bind('touchstart',function(){
 				$(this).parent().hide();
 				self.$shareBox.css({'display':'block'}).addClass('showEle')
-				.find('.share-img-01').show();
+				.find('.share-img-01').show().end().find('.share-img-02').hide();
+				self.$mark.show();
 			});
 
 			
@@ -10671,6 +10674,16 @@
 				if(self.$mark.css('display') != 'none'){
 					self.$mark.hide();
 					self.$shareBox.hide();
+					if(stage){
+						if(stage.gkaIndex == 1){
+							map.afterCloseJuan(map);
+						}else if(stage.$lastchouBox.hasClass('showEle')){
+							//lastchou showEle
+							stage.$lastchouBox.find('.chou_02 .phang-btn').triggerHandler('touchstart');
+						}else if(stage.gkaIndex == 2 || stage.gkaIndex == 3){
+							stage.startNewGuKa();
+						}
+					}
 				}
 				return false;
 			});
@@ -10705,8 +10718,6 @@
 					submitBtn.addClass('imgGray');
 				}
 			});
-
-
 		},
 		initBabyPop02:function(){
 			this.babyPop02.find('input').val('');
@@ -10752,6 +10763,7 @@
 
 				self.popSure.removeClass('showEle').hide();
 				self.$mark.removeClass('showEle').hide();
+
 				stage.startNewGuKa();
 			});
 		},
@@ -10796,6 +10808,11 @@
 			var juanNum = type;
 			this.setJuan(juanNum);
 			this.showMark();
+			if(type.toString() == '10'){
+				this.$juanBox.find('.popScore').text(tudou.score).show();
+			}else{
+				this.$juanBox.find('.popScore').hide();
+			}
 			this.$juanBox.css({'display':'block'}).removeClass('hideObj').addClass('showPopBox');
 		},
 		showBag01:function(){
@@ -10846,7 +10863,6 @@
 				url:'http://www.manglab.com/h5/potato/userInfo.php',
 				data:param,
 				succes:function(){
-					alert('submit success~~~');
 					console.log('babyPop02 submit all right.');
 				}
 			});
@@ -11119,11 +11135,11 @@
 			var self = this;
 			if(debug){
 				data = [
-					{thumb:'one.jpg',name:'渡头',score:98800},
-					{thumb:'two.jpg',name:'水平',score:92300},
-					{thumb:'three.jpg',name:'狗仔队',score:51800},
-					{thumb:'four.jpg',name:'那样有',score:46700},
-					{thumb:'five.jpg',name:'墨阳の',score:18200}
+					{thumb:'one.jpg',nickname:'渡头',score:98800},
+					{thumb:'two.jpg',nickname:'水平',score:92300},
+					{thumb:'three.jpg',nickname:'狗仔队',score:51800},
+					{thumb:'four.jpg',nickname:'那样有',score:46700},
+					{thumb:'five.jpg',nickname:'墨阳の',score:18200}
 				];
 				self.buildph(data);
 			}else{
@@ -11146,6 +11162,7 @@
 					type:'get',
 					url:'http://www.manglab.com/h5/potato/userTop.php',
 					success:function(data){
+						console.log('userTop=' + data);
 						data = window.login.toJson(data);
 						self.buildph(data);
 					}
@@ -11156,12 +11173,13 @@
 
 		buildph:function(data){
 			var html = '';
+
 			for(var i=0,len=data.length; i<len; i++){
 				var itemStr = '<li>' + 
 					'<label class="turn">'+ (i>=3?(i+1):'') +
 					'</label>'+
-					'<img src="./images/icon/'+ data[i].thumb +'"  class="icon"/>'+
-					'<span class="name">'+ data[i].name +'</span>'+
+					'<img src="'+ data[i].thumb +'"  class="icon"/>'+
+					'<span class="name">'+ data[i].nickname +'</span>'+
 					'<span class="score">'+ data[i].score +'</span>'+
 				'</li>';
 
@@ -11513,7 +11531,7 @@
 					type:'post',
 					data:param,
 					succes:function(data){
-						alert('submitScore success~~~' + data);
+						//alert('submitScore success~~~' + data);
 					}
 				})
 			}
@@ -11723,7 +11741,7 @@
 
 	function replay(){
 		var curHref = location.href;
-		if(curHref.indexOf('openid')==-1){
+		if(curHref.indexOf('openid')==-1 && curHref.indexOf('code')>-1){
 			curHref += '&openid=' + window.login.openid;
 		}
 		location.href = curHref;

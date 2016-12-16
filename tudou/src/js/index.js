@@ -47,7 +47,7 @@ Login.prototype = {
 	toJson:function(data){
 		if(typeof data =='string'){
 			try{
-				data = JSON.stringify(data);
+				data = JSON.parse(data);
 			}catch(e){
 				data = {};
 			}
@@ -63,7 +63,7 @@ Login.prototype = {
 				data = self.toJson(data);
 				if(data.openid){
 					self.openid = data.openid;
-					alert('self.openid=' + self.openid);
+					//alert('self.openid=' + self.openid);
 				}else if(data.errmsg){
 					//{"errcode":40029,"errmsg":"invalid code, hints: [ req_id: Df8jRa0780s104 ]"}
 					alert(data.errmsg);
