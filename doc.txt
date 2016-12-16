@@ -1,0 +1,54 @@
+1. 前4名的用户信息列表
+http://www.manglab.com/h5/potato/userTop.php get method
+No params.
+response: [
+  {
+    "id": "1",
+    "openid": "1111",
+    "score": "8889",
+    "thumb": "0",
+    "name": "aaaa",
+    "phone": "160018765889",
+    "address": "上海市静安区",
+    "type": "2"
+  }
+]
+
+2. 所有用户信息列表
+http://www.manglab.com/h5/potato/userList.php get method
+No params.
+response: [
+  {
+    "id": "1",
+    "openid": "1111",
+    "score": "8889",
+    "thumb": "0",
+    "name": "aaaa",
+    "phone": "160018765889",
+    "address": "上海市静安区",
+    "type": "2"
+  }
+]
+后台查看用户信息页面：http://www.manglab.com/h5/potato/list.php
+
+3. 提交用户分数
+http://www.manglab.com/h5/potato/userScore.php post method
+post data: openid=1111&score=8889
+response: true/false
+
+4. 提交用户基本信息
+http://www.manglab.com/h5/potato/userInfo.php post method
+post data: openid=1111&name=aaaa&phone=160018765889&address=上海市静安区&type=1
+response: true/false
+
+5. 获取微信登录权限
+http://www.manglab.com/h5/potato/userAuth.php?code=1234  get method
+get param：code=1234(code是微信返回的code)
+response: {"openid": "1111"} 错误是返回：{"errcode":40029,"errmsg":"invalid code, hints: [ req_id: Df8jRa0780s104 ]"}
+
+微信登录流程示例：
+
+以http://www.manglab.com/h5/login.php 为示例，参考文档：https://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html
+1. 授权发起链接，通过此链接获取code：https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa13312503e5d3929&redirect_uri=http%3A%2F%2Fwww.manglab.com%2Fh5%2Flogin.php&response_type=code&scope=snsapi_userinfo&state=tudoujun#wechat_redirect
+2. 用户同意后重定向到当前页，带code参数：http://www.manglab.com/h5/login.php?code=1234&state=tudoujun, 客户端通过code参数请求userAuth api（后台获取openid 及 access_token 等信息）, 返回openid用户标识；
+3. 客户端通过openid提交分数，提交用户信息，获取头像等操作；

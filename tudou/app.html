@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<title>土豆君北海道之旅</title>
+<meta charset="utf-8" /> 
+<link rel="stylesheet" type="text/css" href="./dist/animate.min.css" />
+<link rel="stylesheet" type="text/css" href="./dist/app.css" /> 
+<style type="text/css" id="pageStyle"></style>
+<style type="text/css" id="pageStyleCon"></style>
+</head>
+<body>
+
+<section id="startPage"  class="page">
+	<img src="./images/start-page/back-btn.png" class="rule-back"  />
+	<img src="./images/start-page/rule-content.png" class="rule-content" />
+	<div class="mark"></div>
+	<img src="./images/start-page/title-img.png" class="start-trip" />
+	<img src="./images/start-page/start-game.png"  class="start-game-btn"/>
+	<img src="./images/start-page/activity-rule.png"  class="rule " />
+	<img src="./images/start-page/rule-arrow.png" class="rule-arrow" />
+</section>
+
+<section id="map" class="map page"  style="display: none;" >
+	<img src="./images/map-page/finger.png"  class="finger"/>
+	<img src="./images/map-page/map-td-1.png" class="td01 td-point-01" style="display: none;"  width="20%" />
+	<img src="./images/map-page/map-td-2.png" class="td02 td02Start " style="display: none;"    width="20%"/>
+	<img src="./images/map-page/map-td-3.png" class="td03 td03Start " style="display: none;" width="20%"/>
+</section>
+
+<div class="music-box" id="music-box">
+	</div>
+<section id="shPage" class="page" style="visibility: hidden;">
+	
+	<aside class="scorcBox scorcBox-01" id="scorcBox">
+		<p class="curScore">0</p>
+	</aside>
+	<div class="stage-bg" id="stage-bg"></div>
+	<div class="tdfei" id="tdfei">
+		<img src="./images/td-fei.png"  />
+	</div>
+	<img src="./images/feitan.png" class="feitan"  id="feitan"/>
+	<div class="tudou" ></div>
+	<div class="st">
+		<div class="st-center"></div>
+	</div>
+	<div class="stage-box">
+		<aside class="oneStage"><div class="stageBg"></div></aside>
+	</div>
+	<audio id="myMusic" controls="controls" loop="loop" preload="auto"
+            src="./images/tudou-music.mp3">
+	</audio>
+</section>
+
+<section class="lastchou" id="lastchouBox">
+	<aside class="popBoxNew chou_01" id="chou_01_box">
+		<h2 class="sorce-text">1000</h2>
+		<img src="./images/popup/chou-btn.png"  class="chou-btn"/>
+		<img src="./images/popup/zhong-chou-1.png" class="chou_01_bg"/>
+	</aside>
+
+	<aside class="popBoxNew chou_02" id="chou_02_box">
+		<h2 class="sorce-text">1000</h2>
+		<img src="./images/popup/phang-btn.png"  class="phang-btn pop-left-btn"/>
+		<img src="./images/popup/share-btn.png"  class="share-btn pop-right-btn"/>
+		<img src="./images/popup/zhong-chou-2.png" class="chou_02_bg"/>
+	</aside>
+
+	<aside class="popBoxNew phangBox" id="phangBox">
+		<ul class="list">
+			<li>
+				<label class="turn">
+				</label>
+				<img src="./images/icon/one.jpg"  class="icon"/>
+				<span class="name">
+				土豆君
+				</span>
+				<span class="score">
+					10500
+				</span>
+			</li>
+			<li>
+				<label class="turn">
+				</label>
+				<img src="./images/icon/two.jpg"  class="icon"/>
+				<span class="name">
+				土豆君
+				</span>
+				<span class="score">
+					9500
+				</span>
+			</li>
+			<li>
+				<label class="turn">
+				</label>
+				<img src="./images/icon/three.jpg"  class="icon"/>
+				<span class="name">
+				土豆君
+				</span>
+				<span class="score">
+					8500
+				</span>
+			</li>
+			<li>
+				<label class="turn">4
+				</label>
+				<img src="./images/icon/four.jpg"  class="icon"/>
+				<span class="name">
+				土豆君
+				</span>
+				<span class="score">
+					7500
+				</span>
+			</li>
+			<li>
+				<label class="turn">5
+				</label>
+				<img src="./images/icon/five.jpg"  class="icon"/>
+				<span class="name">
+				土豆君
+				</span>
+				<span class="score">
+					6500
+				</span>
+			</li>
+
+		</ul>
+		<img src="./images/popup/back-btn.png"  class="back-btn pop-left-btn"/>
+		<img src="./images/popup/watch-vid-btn.png" id="watch-btn"  class="pop-right-btn"/>
+		<img src="./images/popup/phang-bg.png" class="chou_02_bg"/>
+	</aside>
+</section>
+<div class="video-box" id="video-box">
+		<p class="wifi">请在wifi环境下观看</p>
+	    <img src="./images/popup/close-video.png" class="close-video" id="close-video">
+		<iframe id="videoFrame" frameborder="0" width="640" height="498" src="https://v.qq.com/iframe/player.html?vid=o03492j0xvz&tiny=0&auto=0" allowfullscreen></iframe> 
+</div>
+
+<aside class="popBoxNew popJuan" id="juanBox" >
+	<div class="juanText">	  
+	     复制下条信息，打开「手机淘宝」
+			<p>￥AAhgDVFX￥ </p>
+		    【立即享受优惠】
+	</div>
+	<img src="./images/popup/continue-btn.png"  class="continue-btn pop-left-btn"/>
+	<img src="./images/popup/share-btn.png" class="share-btn pop-right-btn"/>
+	<img src="./images/popup/pop-juan-5.png" class="juanImg" />
+</aside>
+
+<aside class="popBoxNew failPop" id="failPop">
+	<h2 class="fail-score">0</h2>
+	<img src="./images/popup/restart-bg.png"  class="restart-btn"/>
+	<img src="./images/popup/down-bg.png"  class="fail-bg"/>
+</aside>
+
+<aside class="popBoxNew bagPop-01" id="bagPop-01">
+	<h2 class="popScore">0</h2>
+	<img src="./images/popup/continue-btn.png"  class="con-bag01-btn pop-left-btn"/>
+	<img src="./images/popup/share-btn.png" class="share-btn pop-right-btn"/>
+	<img src="./images/popup/bag_01.png"  class="bag-01" width="100%"/>
+</aside>
+
+<aside class="popBoxNew bagPop-02" id="bagPop-02">
+	<h2 class="popScore" style="top:22%;">0</h2>
+	<input type="text" name="name"  class="name"/>
+	<input type="tel" name="phone" class="phone"/>
+	<input type="text" name="address" class="address"/>
+	<img src="./images/popup/submit.png"  class="pop-btn-one submit-btn imgGray"/>
+	<img src="./images/popup/bag_02.png"  class="bag-02" width="100%"/>
+</aside>
+
+<aside class="popBoxNew babyPop-01" id="babyPop-01" >
+	<h2 class="popScore" style="top:23%;">0</h2>
+	<img src="./images/popup/continue-btn.png"  class="con-baby01-btn pop-left-btn"/>
+	<img src="./images/popup/share-btn.png" class="share-btn pop-right-btn"/>
+	<img src="./images/popup/bady_01.png"  class="bady-01" width="100%"/>
+</aside>
+
+<aside class="popBoxNew babyPop-02" id="babyPop-02" > 
+	<h2 class="popScore" style="top:22%;">0</h2>
+	<input type="text" name="name"  class="name"/>
+	<input type="tel" name="phone" class="phone"/>
+	<input type="text" name="address" class="address"/>
+	<img src="./images/popup/submit.png"  class="pop-btn-one submit-btn imgGray"/>
+	<img src="./images/popup/bady_x_02.png"  class="baby-02" width="100%"/>
+</aside>
+
+<aside class="popBoxNew pop-sure" id="pop-sure">
+	<img src="./images/popup/sure-btn.png"  class="pop-btn-one sure-btn" style="bottom:10%;" />
+	<img src="./images/popup/sure-bg.png"  class="sure-bg" />
+</aside> 
+
+<aside class="popBoxNew" id="no_gift" >
+	<h2 class="popScore" style="top:27%;">0</h2>
+	<img src="./images/popup/continue-btn.png"  class="con-bag01-btn pop-left-btn"/>
+	<img src="./images/popup/share-btn.png" class="share-btn pop-right-btn"/>
+	<img src="./images/popup/no_gift_bg.png"  class="no-gift" width="100%" />
+</aside> 
+
+
+
+<!-- <aside class="popBoxNew passPop" id="passPop">
+	<h2 class="pass-score"></h2>
+	<img src="./images/popup/continue-btn.png"  class="continue-btn pop-left-btn"/>
+	<img src="./images/popup/share-btn.png" class="share-btn pop-right-btn"/>
+	<img src="./images/popup/juan-10.png"  class="juan-10" />
+	<img src="./images/popup/pass-bg.png"  class="pass-bg"/>
+</aside> -->
+
+<aside class="share-box" id="share-box">
+	<img src="./images/popup/td-share-01.png"  class="share-img-01" width="50%"/>
+	<img src="./images/popup/td-share-02.png"  class="share-img-02" style="display: none;" width="50%"/>
+</aside>
+
+<div class="mark" id="mark" ></div>
+
+<script type="text/javascript" src="./dist/app01.js"></script>
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+</body>
+</html>
