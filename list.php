@@ -22,6 +22,13 @@
         tbody tr:nth-child(odd) {
           background: #eee;
         }
+
+        .pages .title {
+            padding: 0 10px;
+        }
+        .pages .label {
+            padding: 0 10px;
+        }
     </style>
 </head>
 <body>
@@ -33,7 +40,28 @@ $result = getAllUsers();
 // print_r($result);
  ?>
 <div class="pages">
- <table>
+<?php 
+        $a = 0;
+        $b = 0;
+        $c = 0;
+        for($i=0; $i< count($result); $i++) {
+            if($result[$i]["type"] == 1) {
+                $a++;
+            }else if($result[$i]["type"] == 2) {
+                $b++;
+            }else if($result[$i]["type"] == 3) {
+                $c++;
+            }
+        }
+?>
+<div style="float: right;padding: 10px;">
+    <span class="title">汇总：</span>
+    <span class="label">布袋：<?php echo $a; ?></span>
+    <span class="label">小公仔：<?php echo $b; ?></span>
+    <span class="label">大公仔：<?php echo $c; ?></span>
+</div>
+
+<table>
     <thead>
     <tr>
         <th>头像</th>
