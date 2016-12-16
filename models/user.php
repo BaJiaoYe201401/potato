@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set("PRC");
 
 // Get one user by id
 function getUserById($id) {
@@ -68,6 +69,7 @@ function updateThumb($openid, $thumb, $nickname) {
 
 // update thumb
 function updateUserInfo($user) {
+	$time = date('Y-m-d H:i:s', time());
 	$ret = false;
 	$sql = "UPDATE user SET ";
 	if(!empty($user->name)) {
@@ -78,6 +80,9 @@ function updateUserInfo($user) {
 	}
 	if(!empty($user->phone)) {
 		$sql .= "phone = '$user->phone', ";
+	}
+	if(!empty($time)) {
+		$sql .= "time = '$time', ";
 	}
 	if(!empty($user->type)) {
 		$sql .= "type = '$user->type'";
