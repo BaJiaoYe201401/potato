@@ -39,6 +39,17 @@ function getAllUsers() {
 
 }
 
+function getTodayUsers() {
+	$result = mysql_query("select * from user where to_days(time) = to_days(now())");
+	$ret = array();
+	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	    array_push($ret, $row);
+	}
+	mysql_free_result($result);
+	return $ret;
+
+}
+
 // Add one user
 function addUser($openid) {
 	$ret = false;

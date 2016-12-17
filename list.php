@@ -88,7 +88,7 @@ $result = getAllUsers();
                 $type = $result[$i]["type"];
             }
             echo '<tr>';
-            echo '<td><img src="'.$result[$i]["thumb"].'" alt="photo"  width="50" height="50"/></td><td>'.$result[$i]["name"].'</td><td>'.$result[$i]["score"].'</td><td>'.$result[$i]["phone"].'</td><td>'.$type.'</td><td>'.$result[$i]["address"].'</td><td>'.$time.'</td>';
+            echo '<td><img src="'.$result[$i]["thumb"].'" alt="photo"  width="50" height="50"/><span>'.$result[$i]["nickname"].'</span></td><td>'.$result[$i]["name"].'</td><td>'.$result[$i]["score"].'</td><td>'.$result[$i]["phone"].'</td><td>'.$type.'</td><td>'.$result[$i]["address"].'</td><td>'.$time.'</td>';
             echo '</tr>';
         }
     ?>

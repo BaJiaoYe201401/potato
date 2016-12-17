@@ -49,6 +49,6 @@ response: {"openid": "1111"} 错误是返回：{"errcode":40029,"errmsg":"invali
 微信登录流程示例：
 
 以http://www.manglab.com/h5/login.php 为示例，参考文档：https://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html
-1. 授权发起链接，通过此链接获取code：https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa13312503e5d3929&redirect_uri=http%3A%2F%2Fwww.manglab.com%2Fh5%2Flogin.php&response_type=code&scope=snsapi_userinfo&state=tudoujun#wechat_redirect
+1. 授权发起链接，通过此链接获取code：https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa13312503e5d3929&redirect_uri=http%3A%2F%2Fwww.manglab.com%2Fh5%2Ftest.php&response_type=code&scope=snsapi_userinfo&state=tudoujun#wechat_redirect
 2. 用户同意后重定向到当前页，带code参数：http://www.manglab.com/h5/login.php?code=1234&state=tudoujun, 客户端通过code参数请求userAuth api（后台获取openid 及 access_token 等信息）, 返回openid用户标识；
 3. 客户端通过openid提交分数，提交用户信息，获取头像等操作；

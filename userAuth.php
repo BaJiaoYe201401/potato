@@ -26,7 +26,7 @@ if (!empty($_GET)){
 			if($userInfoData['headimgurl']) {
 				$img = updateThumb($openid, $userInfoData['headimgurl'], $userInfoData['nickname']);
 				if($img) {
-					$ret = array('openid' => $openid);
+					$ret = array('openid' => $openid, 'thumb' => urlencode($userInfoData['headimgurl']));
 				}
 			}else{
 				$ret = $userInfoData;
