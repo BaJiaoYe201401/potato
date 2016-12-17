@@ -33,7 +33,9 @@ if ($ticket == false) {
 	//写入键值 $key 的数据
 	$cache->put($key, $cacheData);
 	$ticket = $cacheData;
+	// echo 1111;
 }
+// echo 3333;
 // signature
 $timestamp = time();
 $nonceStr = "potato";
