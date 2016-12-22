@@ -29,7 +29,7 @@ function getTopScoreList() {
 }
 
 function getAllUsers() {
-	$result = mysql_query("SELECT * FROM user ORDER BY id DESC");
+	$result = mysql_query("SELECT * FROM user where score > 0 and type > 0 ORDER BY id DESC");
 	$ret = array();
 	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 	    array_push($ret, $row);

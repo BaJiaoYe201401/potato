@@ -57,8 +57,8 @@ $result = getAllUsers();
 <div style="float: right;padding: 10px;">
     <span class="title">汇总：</span>
     <span class="label">布袋：<?php echo $a; ?></span>
-    <span class="label">小公仔：<?php echo $b; ?></span>
-    <span class="label">大公仔：<?php echo $c; ?></span>
+    <span class="label">小公仔：<?php echo $c; ?></span>
+    <span class="label">大公仔：<?php echo $b; ?></span>
 </div>
 
 <table>
@@ -80,9 +80,9 @@ $result = getAllUsers();
             $time = $result[$i]["time"];
             if($result[$i]["type"] == 1) {
                 $type = '布袋';
-            }else if($result[$i]["type"] == 2) {
-                $type = '小公仔';
             }else if($result[$i]["type"] == 3) {
+                $type = '小公仔';
+            }else if($result[$i]["type"] == 2) {
                 $type = '大公仔';
             }else {
                 $type = $result[$i]["type"];
